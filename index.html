@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="ltr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,14 +23,14 @@ body{
 }
 
 .logo img{
-  width:90px;
-  height:90px;
+  width:110px;
+  height:110px;
   border-radius:50%;
   margin:20px auto;
 }
 
 /* العنوان */
-h1{font-size:20px;}
+h1{font-size:22px;}
 .sub{color:#aaa; font-size:13px; margin-bottom:20px;}
 
 /* الأيقونات */
@@ -43,9 +43,8 @@ h1{font-size:20px;}
 /* اللينكات */
 .link{
   display:flex;
-  justify-content:center;
+  justify-content:space-between;
   align-items:center;
-  gap:10px;
   background:#111;
   padding:15px;
   margin:10px 0;
@@ -58,11 +57,35 @@ h1{font-size:20px;}
 .link:hover{
   background:#00ffcc;
   color:#000;
+  transform:scale(1.03);
 }
 
-/* التليجرام المخفي */
-.telegram-list{
-  display:none;
+.link:active{
+  transform:scale(0.95);
+}
+
+/* زرار */
+.toggle{
+  cursor:pointer;
+}
+
+/* السهم */
+.arrow{
+  transition:0.3s;
+}
+.arrow.rotate{
+  transform:rotate(180deg);
+}
+
+/* القوائم */
+.dropdown{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height 0.6s ease;
+}
+
+.dropdown.open{
+  max-height:800px;
 }
 
 .footer{
@@ -81,43 +104,89 @@ h1{font-size:20px;}
   <img src="logo.jpeg">
 </div>
 
-<h1>ASG Collection</h1>
+<h1>ASG</h1>
 <div class="sub">Best Products • Best Prices</div>
 
+<!-- ICONS -->
 <div class="icons">
-  <a href="https://t.me/+cvQqcfpfEm45ZDRk"><i class="fab fa-telegram"></i></a>
   <a href="https://www.facebook.com/share/18VAmaaw3k/"><i class="fab fa-facebook"></i></a>
   <a href="https://vm.tiktok.com/ZS9LDyxJKUwce-u38nm/"><i class="fab fa-tiktok"></i></a>
+  <a href="#"><i class="fab fa-instagram"></i></a>
 </div>
 
-<!-- الأساسي -->
+<!-- Facebook -->
 <a class="link" href="https://www.facebook.com/share/18VAmaaw3k/">
-  <i class="fab fa-facebook"></i> Facebook
+  <span>Facebook</span>
+  <i class="fab fa-facebook"></i>
 </a>
 
+<!-- TikTok -->
 <a class="link" href="https://vm.tiktok.com/ZS9LDyxJKUwce-u38nm/">
-  <i class="fab fa-tiktok"></i> TikTok
+  <span>TikTok</span>
+  <i class="fab fa-tiktok"></i>
 </a>
 
-<a class="link" href="https://wa.me/201507540976">
-  <i class="fab fa-whatsapp"></i> WhatsApp
+<!-- Instagram -->
+<a class="link" href="#">
+  <span>Instagram</span>
+  <i class="fab fa-instagram"></i>
 </a>
 
-<!-- زر التليجرام -->
-<div class="link" onclick="toggleTelegram()">
-  <i class="fab fa-telegram"></i> Telegram Channels
+<!-- WhatsApp أرقام -->
+<div class="link toggle" onclick="toggleWhats()">
+  <span>WhatsApp</span>
+  <i class="fab fa-whatsapp"></i>
 </div>
 
-<!-- القنوات -->
-<div class="telegram-list" id="tg">
+<div class="dropdown" id="wa">
+  <a class="link" href="https://wa.me/201055351759">
+    <span>01055351759</span>
+  </a>
 
-  <a class="link" href="https://t.me/+cvQqcfpfEm45ZDRk">Telegram</a>
-  <a class="link" href="https://t.me/+S8jlor76U8JhMGU0">Telegram</a>
-  <a class="link" href="https://t.me/+WJX-vfT_n2thYmVk">Telegram</a>
-  <a class="link" href="https://t.me/+aStkOZ1UQu02MWE8">Telegram</a>
-  <a class="link" href="https://t.me/+NpUVbIkrMW5hMTJk">Telegram</a>
-  <a class="link" href="https://t.me/+EiFjyY61P9w2YzA0">Telegram</a>
-  <a class="link" href="https://t.me/+VyjgwabrB9JmMmJk">Telegram</a>
+  <a class="link" href="https://wa.me/201507540976">
+    <span>01507540976</span>
+  </a>
+</div>
+
+<!-- WhatsApp Channels -->
+<div class="link toggle" onclick="toggleChannels()">
+  <span>WhatsApp Channels</span>
+  <i class="fas fa-chevron-down arrow" id="arrow"></i>
+</div>
+
+<div class="dropdown" id="channels">
+
+  <a class="link" href="https://whatsapp.com/channel/0029VajD1a60VycE7t7Wik2W">
+    <span>كاجوال حريمي</span>
+  </a>
+
+  <a class="link" href="https://whatsapp.com/channel/0029VakLXEHDOQIgmawF8F0F">
+    <span>لانجيري و الهوم وير</span>
+  </a>
+
+  <a class="link" href="https://whatsapp.com/channel/0029Vb3OwPnIiRowIALxEZ0G">
+    <span>العبايات</span>
+  </a>
+
+  <a class="link" href="https://whatsapp.com/channel/0029VayNQHG4SpkNDeqO8E32">
+    <span>الزي الشرعي</span>
+  </a>
+
+  <a class="link" href="https://whatsapp.com/channel/0029VaifXglKWEKsxbgw2408">
+    <span>الاطفال</span>
+  </a>
+
+  <a class="link" href="https://whatsapp.com/channel/0029VanZtTe3LdQWMAanFF1F">
+    <span>الرجال</span>
+  </a>
+
+  <a class="link" href="https://whatsapp.com/channel/0029Vaj7LHfJENy3x6OQ610C">
+    <span>الاحذيه</span>
+  </a>
+
+  <a class="link" href="https://whatsapp.com/channel/0029VanbODS1NCrahnwJdl40">
+    <span>الشنط</span>
+  </a>
 
 </div>
 
@@ -126,13 +195,13 @@ h1{font-size:20px;}
 </div>
 
 <script>
-function toggleTelegram(){
-  var x = document.getElementById("tg");
-  if(x.style.display === "block"){
-    x.style.display = "none";
-  } else {
-    x.style.display = "block";
-  }
+function toggleWhats(){
+  document.getElementById("wa").classList.toggle("open");
+}
+
+function toggleChannels(){
+  document.getElementById("channels").classList.toggle("open");
+  document.getElementById("arrow").classList.toggle("rotate");
 }
 </script>
 
