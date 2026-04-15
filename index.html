@@ -29,15 +29,18 @@ body{
   margin:20px auto;
 }
 
-/* العنوان */
 h1{font-size:22px;}
-.sub{color:#aaa; font-size:13px; margin-bottom:20px;}
 
-/* الأيقونات */
+/* أيقونات فوق */
 .icons a{
   color:#fff;
   margin:0 10px;
   font-size:22px;
+  transition:0.3s;
+}
+.icons a:hover{
+  color:#00ffcc;
+  transform:scale(1.2);
 }
 
 /* اللينكات */
@@ -64,12 +67,10 @@ h1{font-size:22px;}
   transform:scale(0.95);
 }
 
-/* زرار */
 .toggle{
   cursor:pointer;
 }
 
-/* السهم */
 .arrow{
   transition:0.3s;
 }
@@ -77,7 +78,6 @@ h1{font-size:22px;}
   transform:rotate(180deg);
 }
 
-/* القوائم */
 .dropdown{
   max-height:0;
   overflow:hidden;
@@ -85,7 +85,12 @@ h1{font-size:22px;}
 }
 
 .dropdown.open{
-  max-height:800px;
+  max-height:900px;
+}
+
+/* أيقونة تيليجرام للقنوات */
+.tg-icon{
+  color:#0088cc;
 }
 
 .footer{
@@ -100,18 +105,19 @@ h1{font-size:22px;}
 
 <div class="container">
 
+<!-- اللوجو -->
 <div class="logo">
   <img src="logo.jpeg">
 </div>
 
 <h1>ASG</h1>
-<div class="sub">Best Products • Best Prices</div>
 
 <!-- ICONS -->
 <div class="icons">
   <a href="https://www.facebook.com/share/18VAmaaw3k/"><i class="fab fa-facebook"></i></a>
   <a href="https://vm.tiktok.com/ZS9LDyxJKUwce-u38nm/"><i class="fab fa-tiktok"></i></a>
   <a href="#"><i class="fab fa-instagram"></i></a>
+  <a href="https://t.me/+cvQqcfpfEm45ZDRk"><i class="fab fa-telegram"></i></a>
 </div>
 
 <!-- Facebook -->
@@ -132,7 +138,7 @@ h1{font-size:22px;}
   <i class="fab fa-instagram"></i>
 </a>
 
-<!-- WhatsApp أرقام -->
+<!-- WhatsApp -->
 <div class="link toggle" onclick="toggleWhats()">
   <span>WhatsApp</span>
   <i class="fab fa-whatsapp"></i>
@@ -148,44 +154,52 @@ h1{font-size:22px;}
   </a>
 </div>
 
-<!-- WhatsApp Channels -->
-<div class="link toggle" onclick="toggleChannels()">
-  <span>WhatsApp Channels</span>
+<!-- Telegram -->
+<div class="link toggle" onclick="toggleTelegram()">
+  <span>Telegram Channels</span>
   <i class="fas fa-chevron-down arrow" id="arrow"></i>
 </div>
 
-<div class="dropdown" id="channels">
+<div class="dropdown" id="tg">
 
-  <a class="link" href="https://whatsapp.com/channel/0029VajD1a60VycE7t7Wik2W">
+  <a class="link" href="https://t.me/+cvQqcfpfEm45ZDRk">
     <span>كاجوال حريمي</span>
+    <i class="fab fa-telegram tg-icon"></i>
   </a>
 
-  <a class="link" href="https://whatsapp.com/channel/0029VakLXEHDOQIgmawF8F0F">
+  <a class="link" href="https://t.me/+EiFjyY61P9w2YzA0">
     <span>لانجيري و الهوم وير</span>
+    <i class="fab fa-telegram tg-icon"></i>
   </a>
 
-  <a class="link" href="https://whatsapp.com/channel/0029Vb3OwPnIiRowIALxEZ0G">
+  <a class="link" href="https://t.me/+aStkOZ1UQu02MWE8">
     <span>العبايات</span>
+    <i class="fab fa-telegram tg-icon"></i>
   </a>
 
-  <a class="link" href="https://whatsapp.com/channel/0029VayNQHG4SpkNDeqO8E32">
+  <a class="link" href="https://t.me/+WJX-vfT_n2thYmVk">
     <span>الزي الشرعي</span>
+    <i class="fab fa-telegram tg-icon"></i>
   </a>
 
-  <a class="link" href="https://whatsapp.com/channel/0029VaifXglKWEKsxbgw2408">
+  <a class="link" href="https://t.me/+VyjgwabrB9JmMmJk">
     <span>الاطفال</span>
+    <i class="fab fa-telegram tg-icon"></i>
   </a>
 
-  <a class="link" href="https://whatsapp.com/channel/0029VanZtTe3LdQWMAanFF1F">
+  <a class="link" href="https://t.me/+NpUVbIkrMW5hMTJk">
     <span>الرجال</span>
+    <i class="fab fa-telegram tg-icon"></i>
   </a>
 
-  <a class="link" href="https://whatsapp.com/channel/0029Vaj7LHfJENy3x6OQ610C">
+  <a class="link" href="https://t.me/+S8jlor76U8JhMGU0">
     <span>الاحذيه</span>
+    <i class="fab fa-telegram tg-icon"></i>
   </a>
 
-  <a class="link" href="https://whatsapp.com/channel/0029VanbODS1NCrahnwJdl40">
+  <a class="link" href="https://t.me/+ZXABIjMhp-VhZGI8">
     <span>الشنط</span>
+    <i class="fab fa-telegram tg-icon"></i>
   </a>
 
 </div>
@@ -199,8 +213,8 @@ function toggleWhats(){
   document.getElementById("wa").classList.toggle("open");
 }
 
-function toggleChannels(){
-  document.getElementById("channels").classList.toggle("open");
+function toggleTelegram(){
+  document.getElementById("tg").classList.toggle("open");
   document.getElementById("arrow").classList.toggle("rotate");
 }
 </script>
