@@ -10,112 +10,137 @@
 <style>
 body{
   margin:0;
-  font-family: Arial, sans-serif;
-  background:#000;
-  color:#fff;
+  font-family:Arial, sans-serif;
+  background:linear-gradient(135deg,#f7f1e8,#e6d8c3);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+}
+
+.app{
+  width:390px;
+  min-height:95vh;
+  background:#fffaf4;
+  border-radius:35px;
+  overflow:hidden;
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.header{
   text-align:center;
+  padding:22px;
+  background:#f1e5d3;
+}
+
+.header h1{
+  margin:0;
+  color:#5c4632;
+  font-size:28px;
+}
+
+.sub{
+  color:#8a7157;
+  font-size:13px;
+  margin-top:6px;
 }
 
 .container{
-  max-width:420px;
-  margin:auto;
-  padding:30px 20px;
+  padding:18px;
 }
 
 .logo img{
-  width:110px;
-  height:110px;
+  width:120px;
+  height:120px;
   border-radius:50%;
-  margin:20px auto;
+  display:block;
+  margin:auto;
+  object-fit:cover;
+  box-shadow:0 8px 20px rgba(0,0,0,0.08);
 }
 
-h1{font-size:22px;}
+.icons{
+  text-align:center;
+  margin:18px 0;
+}
 
-/* أيقونات فوق */
 .icons a{
-  color:#fff;
-  margin:0 10px;
-  font-size:22px;
+  color:#7a5d44;
+  margin:0 12px;
+  font-size:24px;
   transition:0.3s;
 }
+
 .icons a:hover{
-  color:#00ffcc;
-  transform:scale(1.2);
+  color:#b58b63;
+  transform:scale(1.15);
 }
 
-/* اللينكات */
 .link{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  background:#111;
-  padding:15px;
-  margin:10px 0;
-  border-radius:12px;
+  background:#fff;
+  padding:16px;
+  margin:12px 0;
+  border-radius:18px;
   text-decoration:none;
-  color:#fff;
+  color:#5c4632;
+  box-shadow:0 8px 20px rgba(0,0,0,0.05);
   transition:0.3s;
 }
 
 .link:hover{
-  background:#00ffcc;
-  color:#000;
-  transform:scale(1.03);
-}
-
-.link:active{
-  transform:scale(0.95);
+  background:#f3e3cd;
+  transform:scale(1.02);
 }
 
 .toggle{
   cursor:pointer;
 }
 
-/* سهم */
 .arrow{
-  transition:0.3s;
+  transition:0.4s;
 }
+
 .arrow.rotate{
   transform:rotate(180deg);
 }
 
-/* dropdown */
-.dropdown{
+.list{
   max-height:0;
   overflow:hidden;
-  transition:max-height 0.6s ease;
+  transition:max-height 0.5s ease;
 }
 
-.dropdown.open{
-  max-height:900px;
+.list.open{
+  max-height:1000px;
 }
 
-/* تيليجرام أيقونة */
-.tg-icon{
-  color:#0088cc;
-}
-
-/* footer */
 .footer{
-  margin-top:20px;
+  text-align:center;
+  color:#8a7157;
   font-size:11px;
-  color:#666;
+  padding:15px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="app">
 
-<!-- Logo -->
-<div class="logo">
-  <img src="logo.jpeg">
+<div class="header">
+  <h1>ASG</h1>
+  <div class="sub">Best Products • Best Prices</div>
 </div>
 
-<h1>ASG</h1>
+<div class="container">
 
-<!-- Social Icons -->
+<div class="logo">
+  <img src="logo.jpeg" alt="logo">
+</div>
+
 <div class="icons">
   <a href="https://www.facebook.com/share/18VAmaaw3k/"><i class="fab fa-facebook"></i></a>
   <a href="https://vm.tiktok.com/ZS9LDyxJKUwce-u38nm/"><i class="fab fa-tiktok"></i></a>
@@ -123,102 +148,65 @@ h1{font-size:22px;}
   <a href="https://t.me/+cvQqcfpfEm45ZDRk"><i class="fab fa-telegram"></i></a>
 </div>
 
-<!-- Facebook -->
 <a class="link" href="https://www.facebook.com/share/18VAmaaw3k/">
   <span>Facebook</span>
   <i class="fab fa-facebook"></i>
 </a>
 
-<!-- TikTok -->
 <a class="link" href="https://vm.tiktok.com/ZS9LDyxJKUwce-u38nm/">
   <span>TikTok</span>
   <i class="fab fa-tiktok"></i>
 </a>
 
-<!-- Instagram -->
 <a class="link" href="https://www.instagram.com/ahmedsalah5_24?igsh=MXF4cG9wbGZlNm5mcA==">
   <span>Instagram</span>
   <i class="fab fa-instagram"></i>
 </a>
 
-<!-- WhatsApp -->
-<div class="link toggle" onclick="toggleWhats()">
+<div class="link toggle" onclick="toggleList('whatsappList','arrow1')">
   <span>WhatsApp</span>
-  <i class="fab fa-whatsapp"></i>
+  <i id="arrow1" class="fas fa-chevron-down arrow"></i>
 </div>
 
-<div class="dropdown" id="wa">
+<div class="list" id="whatsappList">
   <a class="link" href="https://wa.me/201055351759">
     <span>01055351759</span>
+    <i class="fab fa-whatsapp"></i>
   </a>
-
   <a class="link" href="https://wa.me/201507540976">
     <span>01507540976</span>
+    <i class="fab fa-whatsapp"></i>
   </a>
 </div>
 
-<!-- Telegram -->
-<div class="link toggle" onclick="toggleTelegram()">
-  <span>Telegram Channels</span>
-  <i class="fas fa-chevron-down arrow" id="arrow"></i>
+<div class="link toggle" onclick="toggleList('telegramList','arrow2')">
+  <span>Telegram</span>
+  <i id="arrow2" class="fas fa-chevron-down arrow"></i>
 </div>
 
-<div class="dropdown" id="tg">
-
-  <a class="link" href="https://t.me/+cvQqcfpfEm45ZDRk">
-    <span>كاجوال حريمي</span>
-    <i class="fab fa-telegram tg-icon"></i>
-  </a>
-
-  <a class="link" href="https://t.me/+EiFjyY61P9w2YzA0">
-    <span>لانجيري و الهوم وير</span>
-    <i class="fab fa-telegram tg-icon"></i>
-  </a>
-
-  <a class="link" href="https://t.me/+aStkOZ1UQu02MWE8">
-    <span>العبايات</span>
-    <i class="fab fa-telegram tg-icon"></i>
-  </a>
-
-  <a class="link" href="https://t.me/+WJX-vfT_n2thYmVk">
-    <span>الزي الشرعي</span>
-    <i class="fab fa-telegram tg-icon"></i>
-  </a>
-
-  <a class="link" href="https://t.me/+VyjgwabrB9JmMmJk">
-    <span>الاطفال</span>
-    <i class="fab fa-telegram tg-icon"></i>
-  </a>
-
-  <a class="link" href="https://t.me/+NpUVbIkrMW5hMTJk">
-    <span>الرجال</span>
-    <i class="fab fa-telegram tg-icon"></i>
-  </a>
-
-  <a class="link" href="https://t.me/+S8jlor76U8JhMGU0">
-    <span>الاحذيه</span>
-    <i class="fab fa-telegram tg-icon"></i>
-  </a>
-
-  <a class="link" href="https://t.me/+ZXABIjMhp-VhZGI8">
-    <span>الشنط</span>
-    <i class="fab fa-telegram tg-icon"></i>
-  </a>
+<div class="list" id="telegramList">
+  <a class="link" href="https://t.me/+cvQqcfpfEm45ZDRk"><span>Casual Women</span><i class="fab fa-telegram"></i></a>
+  <a class="link" href="https://t.me/+EiFjyY61P9w2YzA0"><span>Lingerie & Homewear</span><i class="fab fa-telegram"></i></a>
+  <a class="link" href="https://t.me/+aStkOZ1UQu02MWE8"><span>Abayas</span><i class="fab fa-telegram"></i></a>
+  <a class="link" href="https://t.me/+WJX-vfT_n2thYmVk"><span>Modest Wear</span><i class="fab fa-telegram"></i></a>
+  <a class="link" href="https://t.me/+VyjgwabrB9JmMmJk"><span>Kids</span><i class="fab fa-telegram"></i></a>
+  <a class="link" href="https://t.me/+NpUVbIkrMW5hMTJk"><span>Men</span><i class="fab fa-telegram"></i></a>
+  <a class="link" href="https://t.me/+S8jlor76U8JhMGU0"><span>Shoes</span><i class="fab fa-telegram"></i></a>
+  <a class="link" href="https://t.me/+ZXABIjMhp-VhZGI8"><span>Bags</span><i class="fab fa-telegram"></i></a>
+</div>
 
 </div>
 
-<div class="footer">© ASG 2026</div>
+<div class="footer">
+  © ASG 2026
+</div>
 
 </div>
 
 <script>
-function toggleWhats(){
-  document.getElementById("wa").classList.toggle("open");
-}
-
-function toggleTelegram(){
-  document.getElementById("tg").classList.toggle("open");
-  document.getElementById("arrow").classList.toggle("rotate");
+function toggleList(listId, arrowId){
+  document.getElementById(listId).classList.toggle("open");
+  document.getElementById(arrowId).classList.toggle("rotate");
 }
 </script>
 
